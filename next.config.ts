@@ -1,7 +1,10 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       { hostname: 'res.cloudinary.com', protocol: 'https' },
       { hostname: 'avatars.githubusercontent.com', protocol: 'https' },
