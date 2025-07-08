@@ -17,18 +17,20 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       rel="noopener noreferrer"
       className={styles.container}
     >
-      <div className={styles.imageWrapper}>
-        <Image
-          src={article.cover_image}
-          alt={article.title}
-          fill
-          sizes="(max-width: 768px) 100vw, 300px"
-          className={styles.image}
-        />
-        <div className={styles.viewsBadge}>
-          <VscEye /> {article.page_views_count}
+      {article.cover_image && (
+        <div className={styles.imageWrapper}>
+          <Image
+            src={article.cover_image}
+            alt={article.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            className={styles.image}
+          />
+          <div className={styles.viewsBadge}>
+            <VscEye /> {article.page_views_count || 0}
+          </div>
         </div>
-      </div>
+      )}
       <div className={styles.content}>
         <h3 className={styles.title}>{article.title}</h3>
         <p className={styles.description}>{article.description}</p>
@@ -37,10 +39,10 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           <div className={styles.stats}>
             <div className={styles.stat}>
               <VscHeart className={styles.icon} />{' '}
-              {article.public_reactions_count}
+              {article.public_reactions_count || 0}
             </div>
             <div className={styles.stat}>
-              <VscComment className={styles.icon} /> {article.comments_count}
+              <VscComment className={styles.icon} /> {article.comments_count || 0}
             </div>
           </div>
         </div>

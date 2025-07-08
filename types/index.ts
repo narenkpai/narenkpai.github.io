@@ -2,11 +2,12 @@ export interface Article {
   id: string;
   title: string;
   description: string;
-  cover_image: string;
+  cover_image?: string | null;
   url: string;
-  page_views_count: number;
-  public_reactions_count: number;
-  comments_count: number;
+  published_at?: string;
+  page_views_count?: number;
+  public_reactions_count?: number;
+  comments_count?: number;
 }
 
 export interface Project {
