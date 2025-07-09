@@ -8,35 +8,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Driwwwle',
+    title: 'PathSense',
     description:
-      'Discover creative websites and developers. A portal for you to share your projects.',
-    logo: '/logos/driwwwle.svg',
-    link: 'https://github.com/itsnitinr/driwwwle',
-    slug: 'driwwwle',
+      'Improving Quadruped navigation for SAR (Search and Rescue) missions via a TOF Cameras, reducing reliance on IMU and other data sources.',
+    logo: '/logos/pathsense.png',
+    link: 'https://youtu.be/1k9JwCRWLCQ',
+    slug: 'PathSense',
   },
   {
-    title: 'VSCode Portfolio',
+    title: 'FireScout',
     description:
-      'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
-    logo: '/logos/vsc.svg',
-    link: 'https://github.com/itsnitinr/vscode-portfolio',
-    slug: 'vscode-portfolio',
+      'A Software-based solution to UAV navigation in deployment to prevent forest fires. recieved 2nd Place in SmathHacks Hackathon Hardware Track',
+    logo: '/logos/firescout.png',
+    link: 'https://devpost.com/software/firescout',
+    slug: 'firescout',
   },
   {
-    title: 'Subtrackt',
+    title: 'Prescription Protectors',
     description:
-      'A simple and elegant way to track your subscriptions and save money.',
-    logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/itsnitinr/subtrackt',
-    slug: 'subtrackt',
+      'A IOT device and phone app that reminds users to take their medication at the right time, and in the right dosages.',
+    logo: '/logos/prescriptionprotectors.png',
+    link: 'https://devpost.com/software/prescription-protectors',
+    slug: 'prescriptionprotectors',
   },
   {
-    title: 'Coolify Deployments',
+    title: 'Pedestrian Protectors',
     description:
-      'VSCode extension to track and deploy your Coolify applications.',
-    logo: '/logos/coolify.svg',
-    link: 'https://github.com/itsnitinr/coolify-vscode-extension',
-    slug: 'coolify-vscode-extension',
+      'An IOT based system that alerts both pedestrians and drivers of a crosswalk crossing occuring. Recieved 1st place in the Thomas Edision Pitch Competition',
+    logo: '/logos/pedestrianProtector.png',
+    link: 'https://youtu.be/qMTO9zMJwYk',
+    slug: 'PedestrianProtectorDevice',
   },
 ];

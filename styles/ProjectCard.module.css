@@ -43,9 +43,9 @@
 
 .logoWrapper {
   background: rgba(255, 255, 255, 0.05);
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,9 +54,15 @@
 }
 
 .logo {
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Fix for prescriptionprotectors logo with black text on transparent background */
+.logo[src*="prescriptionprotectors"] {
+  filter: invert(1) brightness(1.2);
 }
 
 .title {

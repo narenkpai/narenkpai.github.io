@@ -3,38 +3,43 @@ import styles from '@/styles/ContactCode.module.css';
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
+    link: 'narenpai.com',
+    href: 'https://narenpai.com',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'narenkpai@gmail.com',
+    href: 'mailto:narenkpai@gmail.com',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    link: 'narenkpai',
+    href: 'https://github.com/narenkpai',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'narenpai',
+    href: 'https://www.linkedin.com/in/naren-pai/',
   },
   {
-    social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    social: 'flickr',
+    link: 'narenpai',
+    href: 'https://www.flickr.com/people/203193758@N08/',
   },
   {
-    social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
+    social: 'Medium',
+    link: 'narenpai',
+    href: 'http://narenkpai.medium.com/',
   },
   {
-    social: 'peerlist',
-    link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
+    social: 'Youtube',
+    link: 'narenpai',
+    href: 'https://www.youtube.com/@narenpai',
+  },
+  {
+    social: 'Devpost',
+    link: 'narenpai',
+    href: 'https://devpost.com/narenkpai',
   },
 ];
 

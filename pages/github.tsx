@@ -61,7 +61,7 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
         </div>
         <div className={styles.contributions}>
           <GitHubCalendar
-            username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
+            username="narenkpai"
             hideColorLegend
             hideMonthLabels
             colorScheme="dark"
@@ -80,19 +80,37 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
 };
 
 export async function getStaticProps() {
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
-  );
-  const user = await userRes.json();
+  const username = 'narenkpai';
+  
+  try {
+    const userRes = await fetch(
+      `https://api.github.com/users/${username}`
+    );
+    const user = await userRes.json();
 
-  const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
-  );
-  const repos = await repoRes.json();
+    const repoRes = await fetch(
+      `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`
+    );
+    const repos = await repoRes.json();
 
-  return {
-    props: { title: 'GitHub', repos, user },
-  };
+    return {
+      props: { title: 'GitHub', repos, user },
+    };
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error);
+    return {
+      props: { 
+        title: 'GitHub', 
+        repos: [], 
+        user: { 
+          login: username, 
+          avatar_url: '', 
+          public_repos: 0, 
+          followers: 0 
+        } 
+      },
+    };
+  }
 }
 
 export default GithubPage;
