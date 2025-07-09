@@ -97,7 +97,7 @@ export default function HomePage() {
           <div className={styles.developerRole}>Hardware Developer</div>
 
           <p className={styles.bio}>
-            I'm a passionate highschooler with a drive to develop new technologies involving
+            I &apos; a passionate highschooler with a drive to develop new technologies involving
             IOT and hardware.
           </p>
 
