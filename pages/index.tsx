@@ -4,8 +4,48 @@ import { VscArrowRight } from 'react-icons/vsc';
 
 import styles from '@/styles/HomePage.module.css';
 
+const roles = [
+  'Hardware Developer',
+  'Experimenter',
+  'Engineer',
+  'Maker',
+  'Problem Solver',
+  'Tinkerer',
+];
+
 export default function HomePage() {
   const [activeLineIndex, setActiveLineIndex] = useState(0);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [typedRole, setTypedRole] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Typewriter effect for roles
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let typeSpeed = 80;
+
+    if (isDeleting) {
+      typeSpeed = 40;
+    }
+
+    const handleTyping = () => {
+      if (!isDeleting && typedRole.length < currentRole.length) {
+        setTypedRole(currentRole.slice(0, typedRole.length + 1));
+      } else if (isDeleting && typedRole.length > 0) {
+        setTypedRole(currentRole.slice(0, typedRole.length - 1));
+      } else if (!isDeleting && typedRole.length === currentRole.length) {
+        setTimeout(() => setIsDeleting(true), 1200);
+        return;
+      } else if (isDeleting && typedRole.length === 0) {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+        return;
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typeSpeed);
+    return () => clearTimeout(timer);
+  }, [typedRole, isDeleting, roleIndex]);
 
   const codeLines = [
     { code: 'const HomePage = () => {', type: 'function' },
@@ -94,10 +134,13 @@ export default function HomePage() {
             Naren <span className={styles.accentText}>Pai</span>
           </h1>
 
-          <div className={styles.developerRole}>Hardware Developer</div>
+          <div className={styles.developerRole}>
+            {typedRole}
+            <span className={styles.cursor}>|</span>
+          </div>
 
           <p className={styles.bio}>
-            I&apos;a passionate highschooler with a drive to develop new technologies involving
+            I&apos;m a passionate highschooler with a drive to develop new technologies involving
             IOT and hardware.
           </p>
 

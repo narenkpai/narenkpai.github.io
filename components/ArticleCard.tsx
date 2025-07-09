@@ -1,51 +1,49 @@
-import Image from 'next/image';
-import { VscEye, VscHeart, VscComment } from 'react-icons/vsc';
-
-import { Article } from '@/types';
-
 import styles from '@/styles/ArticleCard.module.css';
 
-interface ArticleCardProps {
-  article: Article;
+interface MediumArticle {
+  guid: string;
+  title: string;
+  link: string;
+  pubDate: string;
+  thumbnail?: string;
+  description: string;
 }
+
+interface ArticleCardProps {
+  article: MediumArticle;
+}
+
+const getExcerpt = (html: string, maxLength: number) => {
+  // Remove HTML tags
+  const text = html.replace(/<[^>]+>/g, '');
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength).trim() + '...';
+  }
+  return text;
+};
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   return (
     <a
-      href={article.url}
+      href={article.link}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.container}
     >
-      {article.cover_image && (
+      {article.thumbnail && (
         <div className={styles.imageWrapper}>
-          <Image
-            src={article.cover_image}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={article.thumbnail}
             alt={article.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 300px"
             className={styles.image}
+            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           />
-          <div className={styles.viewsBadge}>
-            <VscEye /> {article.page_views_count || 0}
-          </div>
         </div>
       )}
       <div className={styles.content}>
         <h3 className={styles.title}>{article.title}</h3>
-        <p className={styles.description}>{article.description}</p>
-
-        <div className={styles.footer}>
-          <div className={styles.stats}>
-            <div className={styles.stat}>
-              <VscHeart className={styles.icon} />{' '}
-              {article.public_reactions_count || 0}
-            </div>
-            <div className={styles.stat}>
-              <VscComment className={styles.icon} /> {article.comments_count || 0}
-            </div>
-          </div>
-        </div>
+        <p className={styles.description}>{getExcerpt(article.description, 250)}</p>
       </div>
     </a>
   );
