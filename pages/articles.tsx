@@ -45,7 +45,7 @@ export async function getStaticProps() {
     if (data.items && Array.isArray(data.items)) {
       articles = data.items;
     }
-  } catch (e) {
+  } catch {
     // Optionally log error
   }
   return {
